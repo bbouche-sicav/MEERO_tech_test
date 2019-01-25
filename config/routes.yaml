@@ -1,3 +1,3 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+app_orders_index:
+    path: /orders/index
+    controller: App\Controller\OrdersController::index
