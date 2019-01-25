@@ -96,8 +96,14 @@ class OrdersController extends AbstractController
     
     public function viewAll()
     {
+        $entityManager = $this->getDoctrine()->getManager();
+        $orders = $entityManager->getRepository("App:Orders")->findAll();
+        
+        dump($orders);
+        
         return $this->render('orders/viewAll.html.twig', [
             'controller_name' => 'OrdersController',
+            'orders' => $orders
         ]);
     }
     

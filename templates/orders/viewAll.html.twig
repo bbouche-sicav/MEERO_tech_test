@@ -11,8 +11,33 @@
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
     
-    VIEW ALL ORDERS <br /><br />
+    VIEW ALL {{orders|length}} ORDERS : <br /><br />
     
+    <table id="orders">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>MARKETPLACE</th>
+                <th>ORDER PURCHASE DATE</th>
+                <th>ORDER PURCHASE TIME</th>
+                <th>ORDER AMOUNT</th>
+                <th>WITH TAXES</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ooo in orders %}
+                <tr>
+                    <td>{{ooo.id}}</th>
+                    <td>{{ooo.marketplace}}</td>
+                    <td>{{ooo.orderPurchaseDate|date('Y-m-d')}}</td>
+                    <td>{{ooo.orderPurchaseDate|date('H:i:s')}}</td>
+                    <td>{{ooo.orderAmount}} €</td>
+                    <td>{{ooo.orderTax}} €</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br /><br /><br />
     This friendly message is coming from:
     <ul>
         <li>Your controller at <code><a href="{{ 'C:/wamp64/www/MEERO_tech_test/src/Controller/OrdersController.php'|file_link(0) }}">src/Controller/OrdersController.php</a></code></li>

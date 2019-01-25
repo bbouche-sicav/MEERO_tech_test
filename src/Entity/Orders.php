@@ -41,12 +41,12 @@ class Orders
      */
     private $order_tax;
 
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
 
-    public function getMarketplace(): ?string
+    public function getMarketplace()
     {
         return $this->marketplace;
     }
@@ -58,7 +58,7 @@ class Orders
         return $this;
     }
 
-    public function getOrderPurchaseDate(): ?\DateTimeInterface
+    public function getOrderPurchaseDate()
     {
         return $this->order_purchase_date;
     }
@@ -70,9 +70,9 @@ class Orders
         return $this;
     }
 
-    public function getOrderPurchaseHeure(): ?\DateTimeInterface
+    public function getOrderPurchaseHeure()
     {
-        return $this->order_purchase_heure;
+        return $this->order_purchase_date;
     }
 
     public function setOrderPurchaseHeure(\DateTimeInterface $order_purchase_heure): self
@@ -82,7 +82,7 @@ class Orders
         return $this;
     }
 
-    public function getOrderAmount(): ?float
+    public function getOrderAmount()
     {
         return $this->order_amount;
     }
@@ -94,7 +94,7 @@ class Orders
         return $this;
     }
 
-    public function getOrderTax(): ?float
+    public function getOrderTax()
     {
         return $this->order_tax;
     }
