@@ -4,8 +4,50 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4b771beb45acffb6eb7ef11230b250e7",
+    "content-hash": "bf072ec0b4b75cac0567667296d78e32",
     "packages": [
+        {
+            "name": "components/jquery",
+            "version": "3.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/jquery.git",
+                "reference": "459648cda77875519c5da3ae1dd0ed5d170aa649"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/jquery/zipball/459648cda77875519c5da3ae1dd0ed5d170aa649",
+                "reference": "459648cda77875519c5da3ae1dd0ed5d170aa649",
+                "shasum": ""
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "scripts": [
+                        "jquery.js"
+                    ],
+                    "files": [
+                        "jquery.min.js",
+                        "jquery.min.map",
+                        "jquery.slim.js",
+                        "jquery.slim.min.js",
+                        "jquery.slim.min.map"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "JS Foundation and other contributors"
+                }
+            ],
+            "description": "jQuery JavaScript Library",
+            "homepage": "http://jquery.com",
+            "time": "2018-03-04T13:23:48+00:00"
+        },
         {
             "name": "doctrine/annotations",
             "version": "v1.6.0",
@@ -1352,6 +1394,52 @@
             "time": "2014-01-12T16:20:24+00:00"
         },
         {
+            "name": "kilik/table",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KilikFr/TableBundle.git",
+                "reference": "cfdf2db35a6fbd580b5aef5aa8f2997686b32e27"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KilikFr/TableBundle/zipball/cfdf2db35a6fbd580b5aef5aa8f2997686b32e27",
+                "reference": "cfdf2db35a6fbd580b5aef5aa8f2997686b32e27",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/doctrine-bundle": "~1.0",
+                "doctrine/orm": "~2.3",
+                "php": "~5.6|~7.0",
+                "twig/twig": "^1.0||^2.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Kilik\\TableBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michel Naud",
+                    "email": "mitch@kilik.fr",
+                    "role": "Author"
+                }
+            ],
+            "description": "Symfony Ajax Datagrid Bundle for doctrine entities",
+            "homepage": "https://github.com/KilikFr/TableBundle",
+            "keywords": [
+                "jquery",
+                "symfony",
+                "table"
+            ],
+            "time": "2018-12-10T10:44:27+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.24.0",
             "source": {
@@ -1428,6 +1516,57 @@
                 "psr-3"
             ],
             "time": "2018-11-05T09:00:11+00:00"
+        },
+        {
+            "name": "mottie/tablesorter",
+            "version": "v2.31.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Mottie/tablesorter.git",
+                "reference": "fa56764ad5630ed3ab9da4a30fdb8dd34bfbaf1f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Mottie/tablesorter/zipball/fa56764ad5630ed3ab9da4a30fdb8dd34bfbaf1f",
+                "reference": "fa56764ad5630ed3ab9da4a30fdb8dd34bfbaf1f",
+                "shasum": ""
+            },
+            "require": {
+                "components/jquery": ">=1.2.6"
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "scripts": [
+                        "dist/js/jquery.tablesorter.combined.js"
+                    ],
+                    "files": "dist/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "(MIT OR GPL-2.0)"
+            ],
+            "authors": [
+                {
+                    "name": "Rob Garrison",
+                    "email": "wowmotty@gmail.com"
+                },
+                {
+                    "name": "Christian Bach"
+                }
+            ],
+            "description": "tablesorter (FORK) is a jQuery plugin for turning a standard HTML table with THEAD and TBODY tags into a sortable table without page refreshes. tablesorter can successfully parse and sort many types of data including linked data in a cell.",
+            "homepage": "https://mottie.github.io/tablesorter/",
+            "keywords": [
+                "alphanumeric",
+                "jquery-plugin",
+                "natural",
+                "sort",
+                "sorting",
+                "table"
+            ],
+            "time": "2018-11-20T21:54:28+00:00"
         },
         {
             "name": "ocramius/package-versions",

@@ -107,10 +107,11 @@ class OrdersController extends AbstractController
         ]);
     }
     
-    public function viewFromID()
+    public function viewFromID($id)
     {
         return $this->render('orders/view.html.twig', [
             'controller_name' => 'OrdersController',
+            'id' => $id
         ]);
     }
 }

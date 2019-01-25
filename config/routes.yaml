@@ -11,5 +11,5 @@ app_orders_viewAll:
     controller: App\Controller\OrdersController::viewAll
     
 app_orders_viewFromID:
-    path: /orders/view/
+    path: /orders/view
     controller: App\Controller\OrdersController::viewFromID
