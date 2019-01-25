@@ -32,6 +32,7 @@ class OrdersController extends AbstractController
             }
         
         // order_purchase_date
+            // need DateTime type
             $crawler = new Crawler(file_get_contents("import/orders-test.xml"));
             $crawler = $crawler->filter('statistics > orders > order > order_purchase_date');
             foreach ( $crawler as $i => $domElement) {
@@ -39,12 +40,13 @@ class OrdersController extends AbstractController
             }
         
         // order_purchase_heure
+             // need DateTime type
             $crawler = new Crawler(file_get_contents("import/orders-test.xml"));
             $crawler = $crawler->filter('statistics > orders > order > order_purchase_heure');
             foreach ( $crawler as $i => $domElement) {
                 $orders[$i]['order_purchase_heure'] = $domElement->nodeValue;
             }
-            
+                
         // order_amount
             $crawler = new Crawler(file_get_contents("import/orders-test.xml"));
             $crawler = $crawler->filter('statistics > orders > order > order_amount');
@@ -64,12 +66,13 @@ class OrdersController extends AbstractController
                 $entityManager = $this->getDoctrine()->getManager();
 
             foreach( $orders as $ooo){
+                $orderDateTime = new \DateTime( $ooo['order_purchase_date']." ".$ooo['order_purchase_heure'] );
                 $order = new Orders();
                 $order->setMarketplace( $ooo['marketplace'] );
-                $order->setOrderPurchaseDate( $ooo['order_purchase_date'] );
-                $order->setOrderPurchaseHeure( $ooo['order_purchase_heure'] );
-                $order->setOrderAmount( $ooo['order_amount'] );
-                $order->setOrderTax( $ooo['order_tax'] );
+                $order->setOrderPurchaseDate( $orderDateTime );
+                $order->setOrderPurchaseHeure( $orderDateTime );
+                $order->setOrderAmount( (float)$ooo['order_amount'] );
+                $order->setOrderTax( (float)$ooo['order_tax'] );
 
                 // tell Doctrine you want to (eventually) save the Product (no queries yet)
                 $entityManager->persist($order);
@@ -77,9 +80,10 @@ class OrdersController extends AbstractController
                 // actually executes the queries (i.e. the INSERT query)
                 $entityManager->flush();
             }
-        exit;
         return $this->render('orders/import.html.twig', [
             'controller_name' => 'OrdersController',
+            'nb_add' => count($orders),
+            'file' => 'import/orders-test.xml'
         ]);
     }
     
