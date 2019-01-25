@@ -1,3 +1,15 @@
 app_orders_index:
     path: /orders/index
     controller: App\Controller\OrdersController::index
+    
+app_orders_import:
+    path: /orders/import
+    controller: App\Controller\OrdersController::import
+   
+app_orders_viewAll:
+    path: /orders/viewAll
+    controller: App\Controller\OrdersController::viewAll
+    
+app_orders_viewFromID:
+    path: /orders/view/
+    controller: App\Controller\OrdersController::viewFromID
