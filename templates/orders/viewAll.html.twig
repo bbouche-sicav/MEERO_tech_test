@@ -6,37 +6,50 @@
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .error{color:red;font-weight:bold;}
 </style>
 
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
     
-    VIEW ALL {{orders|length}} ORDERS : <br /><br />
+    {% if orders|length == 0 %}
+        <span class="error">NO ORDER FIND : <a href="/orders/import"> CLICK TO IMPORT DATA FROM XML</a></span>
+    {% else %}
     
-    <table id="orders">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>MARKETPLACE</th>
-                <th>ORDER PURCHASE DATE</th>
-                <th>ORDER PURCHASE TIME</th>
-                <th>ORDER AMOUNT</th>
-                <th>WITH TAXES</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for ooo in orders %}
+        VIEW ALL {{orders|length}} ORDERS : <br /><br />
+
+        <table id="orders">
+            <thead>
                 <tr>
-                    <td>{{ooo.id}}</th>
-                    <td>{{ooo.marketplace}}</td>
-                    <td>{{ooo.orderPurchaseDate|date('Y-m-d')}}</td>
-                    <td>{{ooo.orderPurchaseDate|date('H:i:s')}}</td>
-                    <td>{{ooo.orderAmount}} €</td>
-                    <td>{{ooo.orderTax}} €</td>
+                    <th>ID</th>
+                    <th>MARKETPLACE</th>
+                    <th>ORDER PURCHASE DATE</th>
+                    <th>ORDER PURCHASE TIME</th>
+                    <th>ORDER AMOUNT</th>
+                    <th>WITH TAXES</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                {% for ooo in orders %}
+                    <tr>
+                        <td>{{ooo.id}}</th>
+                        <td>{{ooo.marketplace}}</td>
+                        <td>{{ooo.orderPurchaseDate|date('Y-m-d')}}</td>
+                        <td>{{ooo.orderPurchaseDate|date('H:i:s')}}</td>
+                        <td>{{ooo.orderAmount}} €</td>
+                        <td>{{ooo.orderTax}} €</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    {% endif %}
+    
+    <br /><br />
+        
+    <a href="/orders/index">RETURN TO INDEX</a>
+    
+   
     <br /><br /><br />
     This friendly message is coming from:
     <ul>
