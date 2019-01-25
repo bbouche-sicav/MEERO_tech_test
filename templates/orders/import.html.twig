@@ -6,12 +6,19 @@
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .error{color:red;font-weight:bold;}
+    .success{color:green;}
 </style>
 
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
     
-    FILE {{file}} IMPORTS {{nb_add}} lines. <br /><br />
+    {% if test == true %}
+        <span class="success">FILE {{file}} IMPORTS {{nb_add}} lines.</span> <br /><br />
+    {% else %}
+        <span class="error">FILE {{file}}not found.</span><br><small>Verify filename and reload page.</small> <br /><br />
+    {% endif %}
+    
     
     This friendly message is coming from:
     <ul>

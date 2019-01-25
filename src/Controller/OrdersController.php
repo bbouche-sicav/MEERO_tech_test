@@ -24,7 +24,10 @@ class OrdersController extends AbstractController
         
         $orders = array();
                         
-        // Market Place
+        if(file_exists("import/orders-test.xml") ){
+            $test = true;
+            
+        // marketplace
             $crawler = new Crawler(file_get_contents("import/orders-test.xml"));
             $crawler = $crawler->filter('statistics > orders > order > marketplace');
             foreach ( $crawler as $i => $domElement) {
@@ -80,10 +83,14 @@ class OrdersController extends AbstractController
                 // actually executes the queries (i.e. the INSERT query)
                 $entityManager->flush();
             }
+        }else{
+            $test = false;
+        }
         return $this->render('orders/import.html.twig', [
             'controller_name' => 'OrdersController',
             'nb_add' => count($orders),
-            'file' => 'import/orders-test.xml'
+            'file' => 'import/orders-test.xml',
+            'test' => $test
         ]);
     }
     
